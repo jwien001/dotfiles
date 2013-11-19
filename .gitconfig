@@ -1,45 +1,43 @@
 [core]
-	editor = vim
-	whitespace = -trailing-space
-	whitespace = trailing-space
-	whitespace = trailing-space
+    editor = vim
+    whitespace = trailing-space,space-before-tab,tab-in-indent
 [color]
-	branch = auto
-	diff = auto
-	interactive = auto
-	status = auto
-	ui = true
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+    ui = true
 [merge]
-	conflictstyle = diff3
+    conflictstyle = diff3
 [push]
-	default = current
+    default = current
 [alias]
-	# Generic
-	cleanup = !git fsck && git prune && git gc
-	lg = log --first-parent
-	co = checkout
-	stat = status
-	# !git remote prune origin && git gc && git clean -dfx && git stash clear
-	nukefromorbit = !git clean -xfd && git submodule update --init && git submodule foreach git clean -xfd && make
-	english-diff = !git diff --minimal --color=auto --word-diff=plain --ignore-space-at-eol --ignore-space-change
-	today = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
+    # Generic
+    cleanup = !git fsck && git prune && git gc
+    lg = log --first-parent
+    co = checkout
+    stat = status
+    # !git remote prune origin && git gc && git clean -dfx && git stash clear
+    nukefromorbit = !git clean -xfd && git submodule update --init && git submodule foreach git clean -xfd && make
+    english-diff = !git diff --minimal --color=auto --word-diff=plain --ignore-space-at-eol --ignore-space-change
+    today = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
 
-	# Merges
-	edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
-	add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+    # Merges
+    edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+    add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 [color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
+    current = yellow reverse
+    local = yellow
+    remote = green
 [color "diff"]
- 	meta = yellow bold
-	frag = magenta bold
-	old = red
-	new = green
+    meta = yellow bold
+    frag = magenta bold
+    old = red
+    new = green
 [color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
+    added = yellow
+    changed = green
+    untracked = cyan
 [user]
-	name = Josh Wien
-	email = jwien001@gmail.com
+    name = Josh Wien
+    email = jwien001@gmail.com
