@@ -2,10 +2,17 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc   # --> Read /etc/bashrc, if present.
 fi
 
-function parse_git_branch {
-    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-}
-export PS1="\[\033[01;32m\]\u@\h:\[\033[01;34m\]\w \$(parse_git_branch) \\$\[\033[00m\] "
+if [ -f ~/.git-completion.sh ]; then
+    . ~/.git-completion.sh
+fi
+
+if [ -f ~/.git-prompt.sh ]; then
+    . ~/.git-prompt.sh
+fi
+
+export PS1='\[\e[1;34m\]\u\[\e[0;39m\]@\[\e[1;32m\]\h\[\e[0;39m\]:\[\e[1;33m\]\w\[\e[0;39m\]$(__git_ps1 " \[\e[1;36m\](%s)\[\e[0;39m\]") \$ '
+
+export HOMEBREW_GITHUB_API_TOKEN=02548e9a51b3786fe1d5225e5c559379e18584e9
 
 alias la="ls -a"
 alias ssh="ssh -A"
