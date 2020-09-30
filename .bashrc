@@ -12,7 +12,7 @@ fi
 
 export PS1='\[\e[1;34m\]\u\[\e[0;39m\]@\[\e[1;32m\]\h\[\e[0;39m\]:\[\e[1;33m\]\w\[\e[0;39m\]$(__git_ps1 " \[\e[1;36m\](%s)\[\e[0;39m\]") \$ '
 
-export HOMEBREW_GITHUB_API_TOKEN=02548e9a51b3786fe1d5225e5c559379e18584e9
+export HOMEBREW_GITHUB_API_TOKEN=<>
 
 function detach-others {
     tmux ls |
