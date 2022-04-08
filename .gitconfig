@@ -11,8 +11,12 @@
 [merge]
     conflictstyle = diff3
 [push]
-    default = current
+    default = simple
+[branch]
+    autosetuprebase = always
 [alias]
+    pullorigin = pull --rebase origin
+
     # Generic
     cleanup = !git fsck && git prune && git gc
     lg = log --first-parent

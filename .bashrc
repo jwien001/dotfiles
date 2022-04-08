@@ -10,9 +10,7 @@ if [ -f ~/.git-prompt.sh ]; then
     . ~/.git-prompt.sh
 fi
 
-export PS1='\[\e[1;34m\]\u\[\e[0;39m\]@\[\e[1;32m\]\h\[\e[0;39m\]:\[\e[1;33m\]\w\[\e[0;39m\]$(__git_ps1 " \[\e[1;36m\](%s)\[\e[0;39m\]") \$ '
-
-export HOMEBREW_GITHUB_API_TOKEN=<>
+export PS1='\[\e[1;34m\]\u\[\e[0;39m\]@\[\e[1;32m\]\h\[\e[0;39m\]:\[\e[1;33m\]\w\[\e[0;39m\]$(__git_ps1 " \[\e[1;36m\](%s)\[\e[0;39m\]")\n\t \$ '
 
 function detach-others {
     tmux ls |
@@ -20,6 +18,10 @@ function detach-others {
     cut -d: -f1 |
     grep -v `tmux display-message -p '#S'` |
     xargs -rn1 tmux detach -s
+}
+
+function git-find-replace {
+    git grep -l "$1" | xargs sed -i "" -e "s/$1/$2/g"
 }
 
 alias la="ls -a"

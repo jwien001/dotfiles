@@ -41,6 +41,9 @@ set shiftwidth=4
 set expandtab
 set smarttab
 
+set number
+highlight LineNr ctermfg=grey
+
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
 
@@ -110,6 +113,14 @@ nnoremap tj  :tabprev<CR>
 nnoremap tk  :tabnext<CR>
 nnoremap tl  :tablast<CR>
 
+nnoremap <leader>ss :GitSessionSave<cr>
+nnoremap <leader>sl :GitSessionLoad<cr>
+nnoremap <leader>sd :GitSessionDelete<cr>
+
 " Suffixes that get lower priority when doing tab completion for filenames.
 " These are files we are not likely to want to edit or read.
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.pyo,.pyc,.rbc
+
+"execute pathogen#infect()
+syntax on
+filetype plugin indent on
